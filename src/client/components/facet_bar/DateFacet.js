@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TextField } from '@mui/material'
-import DatePicker from '@mui/lab/DatePicker'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import moment from 'moment'
 import intl from 'react-intl-universal'
 
 /**
- * A date facet component built on @mui/lab/DatePicker and Moment.js.
+ * A date facet component built on @mui/x-date-pickers/DatePicker and Moment.js.
  */
 class DateFacet extends React.Component {
   constructor (props) {

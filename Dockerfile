@@ -1,4 +1,4 @@
-FROM node:16.13.0-alpine
+FROM node:22.21.1-alpine
 ARG API_URL
 ARG MAPBOX_ACCESS_TOKEN
 
@@ -20,7 +20,7 @@ COPY babel.config.js ./
 COPY src ./src
 
 # Run the scripts defined in package.json using build arguments
-RUN npm install && \ 
+RUN npm install --legacy-peer-deps && \ 
 API_URL=$API_URL MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN npm run build
 
 EXPOSE 3001
