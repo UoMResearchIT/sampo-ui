@@ -20,7 +20,7 @@ COPY babel.config.js ./
 COPY src ./src
 
 # Run the scripts defined in package.json using build arguments
-RUN npm install --legacy-peer-deps && \ 
+RUN npm install && \ 
 API_URL=$API_URL MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN npm run build
 
 EXPOSE 3001
