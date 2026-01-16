@@ -1,4 +1,4 @@
-FROM node:16.13.0-alpine
+FROM node:22.21.1-alpine
 ARG API_URL
 ARG MAPBOX_ACCESS_TOKEN
 
