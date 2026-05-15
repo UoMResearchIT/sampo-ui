@@ -265,45 +265,45 @@ createBackendSearchConfig().then(backendSearchConfig => {
     }
   })
 
-  // https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-wmts
-  app.get(`${apiPath}/nls-wmts`, async (req, res, next) => {
-    const url = `https://karttakuva.maanmittauslaitos.fi/maasto/wmts/1.0.0/${req.query.layerID}/default/WGS84_Pseudo-Mercator/${req.query.z}/${req.query.y}/${req.query.x}.png`
-    const headers = {
-      'Content-Type': 'image/png',
-      Authorization: `Basic ${process.env.NLS_WMTS_BASIC_AUTH}`
-    }
-    try {
-      const response = await axios({
-        method: 'get',
-        url,
-        responseType: 'arraybuffer',
-        headers
-      })
-      res.end(response.data, 'base64')
-    } catch (error) {
-      next(error)
-    }
-  })
+  // // https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-wmts
+  // app.get(`${apiPath}/nls-wmts`, async (req, res, next) => {
+  //   const url = `https://karttakuva.maanmittauslaitos.fi/maasto/wmts/1.0.0/${req.query.layerID}/default/WGS84_Pseudo-Mercator/${req.query.z}/${req.query.y}/${req.query.x}.png`
+  //   const headers = {
+  //     'Content-Type': 'image/png',
+  //     Authorization: `Basic ${process.env.NLS_WMTS_BASIC_AUTH}`
+  //   }
+  //   try {
+  //     const response = await axios({
+  //       method: 'get',
+  //       url,
+  //       responseType: 'arraybuffer',
+  //       headers
+  //     })
+  //     res.end(response.data, 'base64')
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // })
 
-  // https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-wmts
-  app.get(`${apiPath}/nls-wmts-open`, async (req, res, next) => {
-    const url = `https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/${req.query.layerID}/default/WGS84_Pseudo-Mercator/${req.query.z}/${req.query.y}/${req.query.x}.png`
-    const headers = {
-      'Content-Type': 'image/png',
-      Authorization: `Basic ${process.env.NLS_API_KEY_BASE64}`
-    }
-    try {
-      const response = await axios({
-        method: 'get',
-        url,
-        responseType: 'arraybuffer',
-        headers
-      })
-      res.end(response.data, 'base64')
-    } catch (error) {
-      next(error)
-    }
-  })
+  // // https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-wmts
+  // app.get(`${apiPath}/nls-wmts-open`, async (req, res, next) => {
+  //   const url = `https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/${req.query.layerID}/default/WGS84_Pseudo-Mercator/${req.query.z}/${req.query.y}/${req.query.x}.png`
+  //   const headers = {
+  //     'Content-Type': 'image/png',
+  //     Authorization: `Basic ${process.env.NLS_API_KEY_BASE64}`
+  //   }
+  //   try {
+  //     const response = await axios({
+  //       method: 'get',
+  //       url,
+  //       responseType: 'arraybuffer',
+  //       headers
+  //     })
+  //     res.end(response.data, 'base64')
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // })
 
   // // https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-vektoritiilet
   app.get(`${apiPath}/nls-vectortiles-open`, async (req, res, next) => {
