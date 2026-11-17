@@ -110,6 +110,13 @@
     "webpack-dev-server": "^5.2.1",
     "webpack-merge": "^5.7.3"
   },
+  "overrides": {
+    "image-size": "2.0.4",
+    "@loaders.gl/compression": {
+      "fflate": "0.7.5"
+    },
+    "uuid": "11.1.1"
+  },
   "standard": {
     "parser": "@babel/eslint-parser"
   },
