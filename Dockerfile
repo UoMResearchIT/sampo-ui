@@ -1,4 +1,4 @@
-FROM node:22.21.1-alpine
+FROM node:22.23.5-alpine
 ARG API_URL
 ARG MAPBOX_ACCESS_TOKEN
 
@@ -10,7 +10,7 @@ WORKDIR /usr/src/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY package*.json ./
+COPY package*.json .npmrc ./
 COPY webpack*.js ./
 
 # Babel 7 presets and plugins
@@ -20,6 +20,7 @@ COPY babel.config.js ./
 COPY src ./src
 
 # Run the scripts defined in package.json using build arguments
+RUN npm install -g npm@12.2.3
 RUN npm install && \ 
 API_URL=$API_URL MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN npm run build
 

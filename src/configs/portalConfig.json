@@ -21,7 +21,6 @@
     },
     "localeConfig": {
         "defaultLocale": "en",
-        "readTranslationsFromGoogleSheets": false,
         "availableLocales": [
             {
                 "id": "en",
